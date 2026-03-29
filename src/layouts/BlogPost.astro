@@ -18,7 +18,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			/* Relaxed Premium Typography (Balanced Spacing) */
 			.journal-content {
 				color: #374151;
-				line-height: 1.8;
+				line-height: 1.7;
 				font-size: 1.125rem;
 				font-weight: 300;
 			}
@@ -26,63 +26,83 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				font-family: 'Outfit', sans-serif;
 				font-weight: 700;
 				color: #000;
-				font-size: 2.25rem;
+				font-size: 1.75rem;
 				letter-spacing: -0.05em;
-				margin-top: 3.5rem !important;
-				margin-bottom: 1.5rem !important;
+				margin-top: 2rem !important;
+				margin-bottom: 1rem !important;
 				line-height: 1.2;
+			}
+			@media (min-width: 768px) {
+				.journal-content h2 {
+					font-size: 2.5rem;
+					margin-top: 4rem !important;
+					margin-bottom: 1.5rem !important;
+				}
+				.journal-content {
+					line-height: 1.8;
+				}
 			}
 			.journal-content h3 {
 				font-family: 'Outfit', sans-serif;
 				font-weight: 700;
 				color: #000;
-				font-size: 1.5rem;
-				margin-top: 2.5rem !important;
-				margin-bottom: 1rem !important;
+				font-size: 1.25rem;
+				margin-top: 1.5rem !important;
+				margin-bottom: 0.75rem !important;
+			}
+			@media (min-width: 768px) {
+				.journal-content h3 {
+					font-size: 1.75rem;
+					margin-top: 3rem !important;
+					margin-bottom: 1rem !important;
+				}
 			}
 			.journal-content p {
-				margin-bottom: 1.5rem !important;
+				margin-bottom: 1.25rem !important;
 			}
-			.journal-content strong {
-				font-weight: 600;
-				color: #000;
+			@media (min-width: 768px) {
+				.journal-content p {
+					margin-bottom: 2rem !important;
+				}
 			}
 			.journal-content ul {
 				list-style: none;
 				padding: 0;
-				margin-bottom: 2.5rem !important;
-				margin-top: 1.5rem !important;
+				margin-bottom: 2rem !important;
+				margin-top: 1rem !important;
 			}
 			.journal-content ul li {
 				position: relative;
-				padding-left: 2.5rem;
-				margin-bottom: 1.5rem !important;
-				line-height: 1.7;
+				padding-left: 2rem;
+				margin-bottom: 1rem !important;
+				line-height: 1.6;
 			}
-			.journal-content ul li::before {
-				content: '';
-				position: absolute;
-				left: 0;
-				top: 0.8em;
-				width: 1.25rem;
-				height: 1px;
-				background-color: rgba(0,0,0,0.1);
+			@media (min-width: 768px) {
+				.journal-content ul li {
+					padding-left: 2.5rem;
+					margin-bottom: 1.5rem !important;
+				}
 			}
 			.journal-content hr {
 				border: none;
 				height: 1px;
 				background-color: rgba(0,0,0,0.05);
-				margin: 3.5rem 0 !important;
+				margin: 2.5rem 0 !important;
+			}
+			@media (min-width: 768px) {
+				.journal-content hr {
+					margin: 5rem 0 !important;
+				}
 			}
 		</style>
 	</head>
 
 	<body class="bg-white">
 		<Header />
-		<main class="pt-32 pb-40 px-6">
+		<main class="pt-24 md:pt-32 pb-24 md:pb-40 px-6">
 			<article class="max-w-5xl mx-auto">
 				<!-- Header Area -->
-				<header class="max-w-3xl mx-auto text-center mb-24">
+				<header class="max-w-3xl mx-auto text-center mb-12 md:mb-24">
 					<div class="mb-6 flex justify-center items-center gap-4">
 						<span class="text-[10px] font-bold tracking-[0.4em] text-black/20 uppercase">Strategy & Freedom</span>
 						<span class="w-1 h-1 rounded-full bg-black/10"></span>
@@ -90,13 +110,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 							<FormattedDate date={pubDate} />
 						</span>
 					</div>
-					<h1 class="text-5xl md:text-7xl font-bold mb-10 tracking-tighter leading-[0.9]">{title}</h1>
-					<p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">{description}</p>
+					<h1 class="text-4xl md:text-7xl font-bold mb-8 md:mb-10 tracking-tighter leading-[1.1] md:leading-[0.9]">{title}</h1>
+					<p class="text-lg md:text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">{description}</p>
 				</header>
 
 				<!-- Hero Image Full Width -->
-				<div class="max-w-5xl mx-auto mb-32 -mx-4 md:mx-auto">
-					{heroImage && <img width={1200} height={600} src={heroImage} alt="" class="rounded-[40px] shadow-2xl border border-black/5 aspect-[16/7] object-cover hover:scale-[1.01] transition-transform duration-1000" />}
+				<div class="max-w-5xl mx-auto mb-16 md:mb-32 -mx-6 md:mx-auto">
+					{heroImage && <img width={1200} height={600} src={heroImage} alt="" class="rounded-[20px] md:rounded-[40px] shadow-2xl border border-black/5 aspect-[4/3] md:aspect-[16/7] object-cover hover:scale-[1.01] transition-transform duration-1000" />}
 				</div>
 
 				<!-- Content Column -->
