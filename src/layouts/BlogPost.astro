@@ -15,10 +15,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	<head>
 		<BaseHead title={title} description={description} />
 		<style is:global>
-			/* Direct Premium Typography (Brute Force Spacing) */
+			/* Relaxed Premium Typography (Balanced Spacing) */
 			.journal-content {
 				color: #374151;
-				line-height: 2;
+				line-height: 1.8;
 				font-size: 1.125rem;
 				font-weight: 300;
 			}
@@ -26,22 +26,22 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				font-family: 'Outfit', sans-serif;
 				font-weight: 700;
 				color: #000;
-				font-size: 2.5rem;
+				font-size: 2.25rem;
 				letter-spacing: -0.05em;
-				margin-top: 6rem !important;
-				margin-bottom: 2.5rem !important;
-				line-height: 1.1;
+				margin-top: 3.5rem !important;
+				margin-bottom: 1.5rem !important;
+				line-height: 1.2;
 			}
 			.journal-content h3 {
 				font-family: 'Outfit', sans-serif;
 				font-weight: 700;
 				color: #000;
-				font-size: 1.75rem;
-				margin-top: 4rem !important;
-				margin-bottom: 1.5rem !important;
+				font-size: 1.5rem;
+				margin-top: 2.5rem !important;
+				margin-bottom: 1rem !important;
 			}
 			.journal-content p {
-				margin-bottom: 3rem !important;
+				margin-bottom: 1.5rem !important;
 			}
 			.journal-content strong {
 				font-weight: 600;
@@ -50,14 +50,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.journal-content ul {
 				list-style: none;
 				padding: 0;
-				margin-bottom: 4rem !important;
-				margin-top: 2rem !important;
+				margin-bottom: 2.5rem !important;
+				margin-top: 1.5rem !important;
 			}
 			.journal-content ul li {
 				position: relative;
 				padding-left: 2.5rem;
-				margin-bottom: 2.5rem !important;
-				line-height: 1.8;
+				margin-bottom: 1.5rem !important;
+				line-height: 1.7;
 			}
 			.journal-content ul li::before {
 				content: '';
@@ -72,7 +72,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				border: none;
 				height: 1px;
 				background-color: rgba(0,0,0,0.05);
-				margin: 6rem 0 !important;
+				margin: 3.5rem 0 !important;
 			}
 		</style>
 	</head>
