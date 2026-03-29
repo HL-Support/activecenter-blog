@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<style is:global>
+			/* Custom Premium Typography */
+			.journal-content {
+				@apply text-gray-800 leading-[1.8] text-lg font-light;
+			}
+			.journal-content h1, .journal-content h2, .journal-content h3, .journal-content h4 {
+				@apply font-bold tracking-tighter text-black mt-16 mb-8 leading-[1.1];
+			}
+			.journal-content h2 { @apply text-4xl; }
+			.journal-content h3 { @apply text-2xl; }
+			.journal-content h4 { @apply text-xl uppercase tracking-widest text-black/40 mb-4 mt-20; }
+			.journal-content p { @apply mb-10; }
+			.journal-content strong { @apply font-semibold text-black; }
+			.journal-content ul { @apply list-none pl-0 mb-12 space-y-6; }
+			.journal-content ul li { @apply pl-8 relative before:content-[''] before:absolute before:left-0 before:top-[0.8em] before:w-4 before:h-[1px] before:bg-black/20; }
+			.journal-content blockquote { @apply border-l-2 border-black/5 pl-8 italic text-gray-400 my-16; }
+			.journal-content hr { @apply border-none h-[1px] bg-black/5 my-24; }
+		</style>
+	</head>
+
+	<body class="bg-white">
+		<Header />
+		<main class="pt-32 pb-40 px-6">
+			<article class="max-w-5xl mx-auto">
+				<!-- Header Area -->
+				<header class="max-w-3xl mx-auto text-center mb-24">
+					<div class="mb-6 flex justify-center items-center gap-4">
+						<span class="text-[10px] font-bold tracking-[0.4em] text-black/20 uppercase">Strategy & Freedom</span>
+						<span class="w-1 h-1 rounded-full bg-black/10"></span>
+						<span class="text-[10px] font-bold tracking-[0.2em] text-black/40 uppercase">
+							<FormattedDate date={pubDate} />
+						</span>
+					</div>
+					<h1 class="text-5xl md:text-7xl font-bold mb-10 tracking-tighter leading-[0.9]">{title}</h1>
+					<p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">{description}</p>
+				</header>
+
+				<!-- Hero Image Full Width -->
+				<div class="max-w-5xl mx-auto mb-32 -mx-4 md:mx-auto">
+					{heroImage && <img width={1200} height={600} src={heroImage} alt="" class="rounded-[40px] shadow-2xl border border-black/5 aspect-[16/7] object-cover hover:scale-[1.01] transition-transform duration-1000" />}
+				</div>
+
+				<!-- Content Column -->
+				<div class="max-w-2xl mx-auto journal-content">
+					<slot />
+				</div>
+				
+				<!-- Article Footer -->
+				<footer class="max-w-2xl mx-auto mt-40 pt-20 border-t border-black/5 text-center">
+					<div class="flex flex-col items-center">
+						<div class="w-16 h-16 rounded-full bg-gray-100 mb-6 overflow-hidden grayscale">
+							<img src="https://avatars.githubusercontent.com/u/1?v=4" alt="Markus">
+						</div>
+						<div class="text-xs font-bold uppercase tracking-widest text-black">Markus Oberhofer</div>
+						<div class="text-gray-400 text-sm mt-2 font-light italic leading-loose max-w-sm">
+							"Upgrade Yourself" ist die gelebte Philosophie, das eigene Leben nach den Prinzipien wissenschaftlicher Exzellenz und persönlicher Freiheit zu gestalten.
+						</div>
+					</div>
+				</footer>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
